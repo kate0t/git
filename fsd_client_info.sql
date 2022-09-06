@@ -76,7 +76,7 @@ left join client clfl on pers.c_fase=clfl.id::text
 join cl_corp clc on clc.c_all_boss = pers.collection_id::text
 where (pers.c_general_acc::int = 1 or (select 1
 from casta c where c.id::text = pers.c_range and
-upper(c.c_value) = ' ÃËÀÂÍÛÉ ÁÓÕÃÀËÒÅÐ')::int = 1)
+upper(c.c_value) = 'ГЛАВНЫЙ БУХГАЛТЕР')::int = 1)
 group by pers.collection_id
 )
 ,bank_and_elim_info as (
