@@ -1,4 +1,4 @@
----Insert into dmcust_org
+---Insert into dm.cust_org
 with tax_registration as (
 select cl.id,
 concat_ws(';', ins.c_reg_doc_ser, ins.c_reg_doc_numb, ins.c_reg_doc_date, clorg.c_name, ct.c_name, rgn.c_name   ) as fns_registration_doc
@@ -76,7 +76,7 @@ left join client clfl on pers.c_fase=clfl.id::text
 join cl_corp clc on clc.c_all_boss = pers.collection_id::text
 where (pers.c_general_acc::int = 1 or (select 1
 from casta c where c.id::text = pers.c_range and
-upper(c.c_value) = ' √À¿¬Õ€… ¡”’√¿À“≈–')::int = 1)
+upper(c.c_value) = ' √É√ã√Ä√Ç√ç√õ√â √Å√ì√ï√É√Ä√ã√í√Ö√ê')::int = 1)
 group by pers.collection_id
 )
 ,bank_and_elim_info as (
